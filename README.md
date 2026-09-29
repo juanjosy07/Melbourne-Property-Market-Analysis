@@ -26,5 +26,11 @@ Analyze what drives property prices in Melbourne, Australia, and how they vary b
 - Fixed a data inconsistency (negative `Property_Age`) caused by mismatched sale/build dates
 - Engineered new columns: `Price_per_sqm`, `Property_Age`, `Sale_Year`, `Sale_Month`
 
+### Step 3: Exploratory Data Analysis & Visualization ✅
+- **Univariate analysis**: Price distribution, property type breakdown
+- **Bivariate analysis**: Price vs. Rooms, Price vs. Distance from CBD, Price by Property Type, Average Price by Region
+- **Multivariate analysis**: Correlation heatmap of key features, Price by Rooms split by Type, Price vs. Distance colored by Region, Price trend over time by Type
+- 10 visualizations total, using Matplotlib and Seaborn
+
 ## Tools
 Python, Pandas, NumPy, Matplotlib, Seaborn — Jupyter Notebook
