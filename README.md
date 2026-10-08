@@ -10,7 +10,6 @@ An exploratory data analysis (EDA) of the Melbourne Housing Snapshot dataset, ex
 - **Shape:** 13,580 rows × 21 columns
 - **Key columns:** Suburb, Address, Rooms, Type, Price, Method, SellerG, Date, Distance, Postcode, Bedroom2, Bathroom, Car, Landsize, BuildingArea, YearBuilt, CouncilArea, Regionname, Propertycount, Lattitude, Longtitude
 
-## Project Status: Complete ✅
 
 ### Data Loading & Initial Overview
 - Loaded dataset, reviewed structure, data types, and summary statistics
