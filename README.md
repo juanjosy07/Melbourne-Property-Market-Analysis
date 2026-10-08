@@ -1,36 +1,56 @@
-# Melbourne Housing Market Analysis
+# Melbourne Housing Market Analysis: Property Pricing, Features, and Regional Trends
 
-Final project for Data Analytics coursework — a Python-based exploratory data analysis (EDA) of the Melbourne Housing Snapshot dataset.
+## Overview
+An exploratory data analysis (EDA) of the Melbourne Housing Snapshot dataset, examining what drives residential property prices in Melbourne, Australia, and how they vary by suburb, region, distance from the CBD, and property type.
 
-## Objective
-Analyze what drives property prices in Melbourne, Australia, and how they vary by suburb, region, distance from the CBD, and property type.
+**Tooling:** Python (Jupyter Notebook) — pandas, NumPy, matplotlib, seaborn
 
 ## Dataset
-- Source: Kaggle — Melbourne Housing Snapshot (`melb_data.csv`)
-- 13,580 rows, 21 columns of real residential property sales data
+- **Source:** Melbourne Housing Snapshot (`melb_data.csv`), Kaggle
+- **Shape:** 13,580 rows × 21 columns
+- **Key columns:** Suburb, Address, Rooms, Type, Price, Method, SellerG, Date, Distance, Postcode, Bedroom2, Bathroom, Car, Landsize, BuildingArea, YearBuilt, CouncilArea, Regionname, Propertycount, Lattitude, Longtitude
 
-## Progress So Far
+## Project Status: Complete ✅
 
-### Step 1: Data Loading and Initial Overview ✅
-- Imported the dataset with Pandas
-- Reviewed shape, data types, and summary statistics (`.info()`, `.describe()`)
-- Identified missing values in `Car`, `CouncilArea`, `YearBuilt`, and `BuildingArea`
+### Data Loading & Initial Overview
+- Loaded dataset, reviewed structure, data types, and summary statistics
 
-### Step 2: Data Pre-processing ✅
-- Converted `Date` to datetime format
+### Data Pre-processing
+- Converted `Date` to datetime
 - Handled missing values:
-  - `Car` and `CouncilArea` imputed (median / 'Unknown') due to minimal missingness
-  - `YearBuilt` and `BuildingArea` imputed using suburb-level medians, with flag columns added for transparency
-- Checked for and confirmed no duplicate rows
-- Identified and capped extreme outliers in `Price`, `Landsize`, and `BuildingArea` using the IQR method
-- Fixed a data inconsistency (negative `Property_Age`) caused by mismatched sale/build dates
-- Engineered new columns: `Price_per_sqm`, `Property_Age`, `Sale_Year`, `Sale_Month`
+  - `Car`: median imputation
+  - `CouncilArea`: filled with "Unknown"
+  - `YearBuilt` and `BuildingArea` (high missingness): suburb-group median imputation, with "missing flag" indicator columns to preserve the information that these were originally missing
+- Standardized the `Type` column — mapped single-letter codes (`h`, `u`, `t`) to readable labels (House, Unit/Duplex, Townhouse) and cast to a categorical dtype
+- Checked and confirmed no duplicate rows
+- Handled outliers in `Price`, `Landsize`, and `BuildingArea` using IQR-based capping (rather than removal, to preserve sample size)
+- Fixed a data inconsistency: 6 rows had a negative `Property_Age` (sale date before build year) — treated as missing and median-imputed
+- Engineered new features: `Price_per_sqm`, `Property_Age`, `Sale_Year`, `Sale_Month`
 
-### Step 3: Exploratory Data Analysis & Visualization ✅
-- **Univariate analysis**: Price distribution, property type breakdown
-- **Bivariate analysis**: Price vs. Rooms, Price vs. Distance from CBD, Price by Property Type, Average Price by Region
-- **Multivariate analysis**: Correlation heatmap of key features, Price by Rooms split by Type, Price vs. Distance colored by Region, Price trend over time by Type
-- 10 visualizations total, using Matplotlib and Seaborn
+### Exploratory Data Analysis
+10+ visualizations across univariate, bivariate, and multivariate analysis, including:
+- Distribution of property prices
+- Number of properties by type
+- Price by number of rooms
+- Price vs. distance from CBD
+- Price distribution by property type
+- Average price by region
+- Price by rooms, split by property type (multivariate)
+- Price vs. distance from CBD, colored by region (multivariate)
+- Correlation heatmap of numeric features (multivariate)
+- Outlier boxplots (Price, Landsize, BuildingArea)
 
-## Tools
-Python, Pandas, NumPy, Matplotlib, Seaborn — Jupyter Notebook
+### Key Insights
+Five key findings, each backed by supporting statistics:
+1. More rooms generally means a higher price, but the relationship isn't perfectly linear
+2. Properties closer to the CBD tend to command higher prices, though the effect is modest (correlation: -0.171)
+3. Property type has a major impact on price — houses average nearly double the price of units/duplexes
+4. Location within Melbourne matters significantly — Southern Metropolitan is the most expensive region
+5. Prices were relatively stable year-over-year across the dataset
+
+**Conclusion:** Property type and location (region) emerge as the strongest drivers of price in the Melbourne housing market, outweighing distance from the CBD. Room count matters but shows diminishing and inconsistent returns at the high end. For buyers and investors, "where" and "what kind" of property matter more than simply "how big."
+
+## Files
+- `Melbourne_Property_Market_Analysis.ipynb` — full analysis notebook
+- `melb_data.csv` — source dataset
+- `README.md` — this file
