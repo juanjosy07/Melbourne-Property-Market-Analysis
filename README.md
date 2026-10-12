@@ -14,7 +14,7 @@ This project analyzes the **Melbourne Housing Snapshot** dataset, a real record 
 - Summarize key, data-backed insights about what drives Melbourne housing prices
 
 ## 📊 About the Dataset
-- **Source:** Melbourne Housing Snapshot (`melb_data.csv`), Kaggle
+- **Source:** Melbourne Housing Snapshot, Kaggle
 - **Shape:** 13,580 rows × 21 columns
 
 | Column | Description |
@@ -49,9 +49,11 @@ This project analyzes the **Melbourne Housing Snapshot** dataset, a real record 
 - Capped outliers in `Price`, `Landsize`, `BuildingArea` using the IQR method (preserving sample size)
 - Fixed a data inconsistency: 6 rows with negative `Property_Age` — treated as missing, median-imputed
 - Engineered features: `Price_per_sqm`, `Property_Age`, `Sale_Year`, `Sale_Month`
+- Exported the cleaned dataset to `melb_data_cleaned.csv`
 
 ### 📈 Exploratory Data Analysis
-10+ visualizations across univariate, bivariate, and multivariate analysis:
+10+ visualizations across univariate, bivariate, and multivariate analysis, each with a short written insight directly beneath it:
+- 📦 Outlier boxplots (Price, Landsize, BuildingArea)
 - 📊 Distribution of property prices
 - 🏘️ Number of properties by type
 - 📦 Price by number of rooms
@@ -61,7 +63,6 @@ This project analyzes the **Melbourne Housing Snapshot** dataset, a real record 
 - 📦 Price by rooms, split by property type *(multivariate)*
 - 🗺️ Price vs. distance from CBD, colored by region *(multivariate)*
 - 🔥 Correlation heatmap of numeric features *(multivariate)*
-- 📦 Outlier boxplots (Price, Landsize, BuildingArea)
 
 ### 💡 Key Insights
 1. 🛏️ More rooms generally means a higher price, but the relationship isn't perfectly linear
@@ -84,6 +85,11 @@ This project analyzes the **Melbourne Housing Snapshot** dataset, a real record 
 - `BuildingArea` and `YearBuilt` had substantial missing data (~40–47%), requiring suburb-level imputation
 - Future work could incorporate school zones, public transport proximity, or crime data
 
+## 📁 Files
+- `Melbourne_Property_Market_Analysis.ipynb` — full analysis notebook
+- `melb_data.csv` — original raw dataset
+- `melb_data_cleaned.csv` — dataset after cleaning (missing values handled, outliers capped, Type standardized)
+- `README.md` — this file
 ## 📁 Files
 - `Melbourne_Property_Market_Analysis.ipynb` — full analysis notebook
 - `melb_data.csv` — source dataset
