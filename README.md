@@ -90,7 +90,3 @@ This project analyzes the **Melbourne Housing Snapshot** dataset, a real record 
 - `melb_data.csv` — original raw dataset
 - `melb_data_cleaned.csv` — dataset after cleaning (missing values handled, outliers capped, Type standardized)
 - `README.md` — this file
-## 📁 Files
-- `Melbourne_Property_Market_Analysis.ipynb` — full analysis notebook
-- `melb_data.csv` — source dataset
-- `README.md` — this file
